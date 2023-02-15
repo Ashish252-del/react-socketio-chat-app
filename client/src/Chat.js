@@ -22,7 +22,7 @@ function Chat({ socket, username, room }) {
       setCurrentMessage("");
     }
   };
-
+// when new user will come socket value will change and rerender
   useEffect(() => {
     socket.on("receive_message", (data) => {
       setMessageList((list) => [...list, data]);
@@ -64,9 +64,9 @@ function Chat({ socket, username, room }) {
           onChange={(event) => {
             setCurrentMessage(event.target.value);
           }}
-          onKeyPress={(event) => {
-            event.key === "Enter" && sendMessage();
-          }}
+          // onKeyPress={(event) => {
+          //   event.key === "Enter" && sendMessage();
+          // }}
         />
         <button onClick={sendMessage}>&#9658;</button>
       </div>
